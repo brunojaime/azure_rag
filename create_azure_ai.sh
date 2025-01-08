@@ -2,11 +2,10 @@
 
 # Load parameters from the .env file
 set -a
-source parameters.env
+source .env
 set +a
-
-# Create a resource group (if not exists)
-az group create --name "$RESOURCE_GROUP" --location "$LOCATION"
+#Login
+az login
 
 # Create the Azure AI Services resource
 az cognitiveservices account create \
@@ -19,3 +18,6 @@ az cognitiveservices account create \
     
 
 source /azure_commands/retrieve_keys_endpoint.sh
+
+# Create a resource group (if not exists)
+az group create --name "$RESOURCE_GROUP" --location "$LOCATION"

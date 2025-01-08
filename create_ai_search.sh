@@ -2,7 +2,7 @@
 
 # Load parameters from the .env file
 set -a
-source parameters.env
+source .env
 set +a
 
 
